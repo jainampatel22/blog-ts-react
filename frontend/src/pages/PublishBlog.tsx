@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
+import { ArrowLeft  } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { BrandSlogan } from '@/components/BrandSlogan';
+
 import axios from 'axios'
 
 export default function PublishBlog() {
@@ -16,7 +16,7 @@ export default function PublishBlog() {
   const [content, setContent] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
-const token = localStorage.getItem('token')
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('') // Clear previous errors

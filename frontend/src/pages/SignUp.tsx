@@ -8,13 +8,12 @@ import { Label } from "@/components/ui/label"
 import axios from 'axios'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 // import { Alert, AlertDescription } from "@/components/ui/alert"
-import { AlertCircle } from 'lucide-react'
 
 export default function SignUp() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [, setError] = useState('')
    const navigate = useNavigate()
 
    const handleSubmit = async (e: React.FormEvent) => {

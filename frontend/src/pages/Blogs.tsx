@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { Card, CardContent, CardFooter } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { BrandSlogan } from '../components/BrandSlogan';
-import { BlogSkeleton } from '@/components/BlogSkeleton';
+
 import dayjs from 'dayjs';
 
 import { Skeleton } from "@/components/ui/skeleton"

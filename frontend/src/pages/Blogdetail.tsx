@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { BrandSlogan } from '@/components/BrandSlogan';
+
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { format } from "date-fns"
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
+
+import { ArrowLeft,Clock } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
