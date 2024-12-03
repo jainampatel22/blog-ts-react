@@ -11,8 +11,9 @@ const client_1 = require("@prisma/client");
 dotenv_1.default.config();
 //app
 const app = (0, express_1.default)();
+const port = process.env.PORT || 3000;
 const corsOptions = {
-    origin: 'http://localhost:5173', // Replace with your frontend URL
+    origin: 'https://blog-ts-react-tjxp.vercel.app/', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -27,4 +28,4 @@ app.get("/", (req, res) => {
 const prisma = new client_1.PrismaClient();
 //Root route
 app.use('/', defaultRoutes_1.defaultRoute);
-app.listen(3000);
+app.listen(port);
