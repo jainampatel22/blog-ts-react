@@ -4,7 +4,7 @@ import SignIn from './pages/SignIn'
 import { Blogs } from './pages/Blogs'
 import PublishBlog from './pages/PublishBlog'
 import Blogdetail from './pages/Blogdetail'
-import BlogDetail from './pages/Blogdetail'
+
 
 function App() {
 
