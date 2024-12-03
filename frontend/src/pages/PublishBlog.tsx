@@ -23,7 +23,7 @@ const token = localStorage.getItem('token')
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/blog",
+        "https://blog-ts-react.onrender.com/api/v1/blog",
         { title, content },
         {
           headers: {

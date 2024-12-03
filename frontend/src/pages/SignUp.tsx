@@ -34,7 +34,7 @@ export default function SignUp() {
   
     try {
       // Make API request to the signup endpoint
-      const response = await axios.post("http://localhost:3000/api/v1/signup", {
+      const response = await axios.post("https://blog-ts-react.onrender.com/api/v1/signup", {
         name,
         email,
         password,

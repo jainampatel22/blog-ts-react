@@ -31,7 +31,7 @@ export function Blogs() {
   
     try {
   
-      const response = await axios.get('http://localhost:3000/api/v1/blogs/bulks');
+      const response = await axios.get('https://blog-ts-react.onrender.com/api/v1/blogs/bulks');
       setBlogs(response.data);
       setLoading(false);
   

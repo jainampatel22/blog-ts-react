@@ -31,7 +31,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/blogs/${id}`);
+        const response = await axios.get(`https://blog-ts-react.onrender.com/blogs/${id}`);
         setBlog(response.data);
         setLoading(false)
       } catch (err) {
