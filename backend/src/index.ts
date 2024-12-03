@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const corsOptions = {
-    origin: 'https://blog-ts-react-tjxp.vercel.app/', // Replace with your frontend URL
+    origin: 'https://blog-ts-react-tjxp.vercel.app', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
