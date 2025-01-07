@@ -16,16 +16,15 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction): Promi
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const token = jwtToken.split(' ')[1]; // Get token from 'Bearer <token>'
+    const token = jwtToken.split(' ')[1]; 
 
     const payload = jwt.verify(token, process.env.JWT_SECRET as string);
     if (!payload) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    // Attach userId to request for use in route handlers
     req.body.userId = (payload as any).id;
-    next();  // Proceed to the next middleware or route handler
+    next();  
   } catch (error) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
@@ -40,42 +39,13 @@ const corsOptions = {
 // 
 defaultRoute.use('/api/v1/blog', verifyJWT);
 defaultRoute.options('/api/v1/blog', cors(corsOptions))
-// defaultRoute.post("/api/v1/blog",cors(corsOptions), async (req: Request, res: Response): Promise<any> => {
-//   const { title, content ,published} = req.body;
-//   const userId = req.body.userId;
-//   try {
-//     const PostCreate = await prisma.post.create({
-//       data: {
-//         title,
-//         content,
-//         published,
-//         authorId: userId
-//       },
-//     })
-//     // const user = await prisma.user.findUnique({
-//     //     where: { id: userId },
-//     //     select: { name: true },  // Only fetch the user's name
-//     //   });
-//     //   if (!user) {
-//     //     return res.status(404).json({ error: 'User not found' });
-//     //   }
-//     return res.status(201).json({ id: PostCreate.id });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({ error: 'Failed to create post' });
-//   }
-// });
-// Route for user signup
 
 defaultRoute.post("/api/v1/blog", cors(corsOptions), async (req: Request, res: Response): Promise<void> => {
   try {
-    // const validatedData = createPostSchema.parse(req.body) as CreatePostInput
-
-    // Check if user exists
    const { title , content} = req.body;
     const user = await prisma.user.findUnique({
       where: { id: req.body.userId },
-      select: { id: true }, // We only need to check if the user exists
+      select: { id: true },
     })
 
     if (!user) {
@@ -127,7 +97,7 @@ defaultRoute.post("/api/v1/signup", async (req: Request, res: Response): Promise
   }
 });
 
-// Signin Route
+
 defaultRoute.post("/api/v1/signin", async (req: Request, res: Response): Promise<any> => {
   const { email, password } = req.body;
 
@@ -161,8 +131,8 @@ defaultRoute.put("/api/v1/blog", async (req, res, next): Promise<any> => {
   try {
     const update = await prisma.post.update({
       where: {
-        id: id, // Use the post's id to identify the post
-        authorId: userId // Ensure the post belongs to the authenticated user
+        id: id, 
+        authorId: userId 
       },
       data: {
         content: content,
@@ -179,24 +149,7 @@ defaultRoute.put("/api/v1/blog", async (req, res, next): Promise<any> => {
 });
 
 
-// defaultRoute.get("/api/v1/blog/:id", async (req, res, next): Promise<any> => {
-//   const { id } = req.params; // Get post id from URL parameter
-  
-//   try {
-//     const post = await prisma.post.findUnique({
-//       where: { id: id } // Fetch the post by id
-//     });
 
-//     if (!post) {
-//       return res.status(404).json({ error: 'Post not found' });
-//     }
-
-//     return res.status(200).json(post);
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500).json({ error: 'Failed to retrieve post' });
-//   }
-// });
 defaultRoute.get("/api/v1/blogs", async (req, res, next): Promise<any> => {
 
   
